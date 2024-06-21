@@ -52,6 +52,18 @@ class ll{
         cout<<temp->data;
 
     }
+
+    void reverse(){
+        Node *curr=head;
+        Node *prev=nullptr;
+        Node *next;
+        while(curr!=nullptr){
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
 };
 
 int main()
@@ -69,9 +81,8 @@ int main()
     list1.insert(20);
     list1.print();
     cout<<endl;
-    int k;
-    cin>>k;
-    list1.findlast(k);
+    list1.reverse();
+    list1.print();
 
     return 0;
 }
